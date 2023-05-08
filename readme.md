@@ -1,19 +1,19 @@
 # 接口版本控制
+
 引入该依赖可以在不改变接口名的情况下，控制请求访问不同的接口版本
 
 ## 使用方法
+
 1. mvn install 之后引入到自己的项目中
 2. 配置文件配置
 
-    ``
-    spring.main.allow-bean-definition-overriding = true
-    ``
+   ``spring.main.allow-bean-definition-overriding = true``
 3. 接口层使用注解
-    ![img.png](img.png)
-
+   ![img.png](assets/img.png)
 
 支持请求头和请求参数进行控制
 注解相关参数详解
+
 ```java
 public @interface VerCtrl {
     /**
@@ -55,7 +55,7 @@ public @interface VerCtrl {
 
 版本映射关系图如下：
 
-![](http://192.168.1.46:9000/blog/版本关系映射.png)
+![.png](assets/版本关系映射.png)
 
 客户端版本过低会报错，客户端版本过高会选择所有接口里面版本最高的一个
 
