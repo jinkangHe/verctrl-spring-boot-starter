@@ -51,7 +51,7 @@ public @interface VerCtrl {
 
 ```
 
-注意：当前不支持请求里面的版本号携带前缀
+
 
 版本映射关系图如下：
 
@@ -60,3 +60,20 @@ public @interface VerCtrl {
 客户端版本过低会报错，客户端版本过高会选择所有接口里面版本最高的一个
 
 如果有相同版本的请求，运行时会出现请求重复错误，暂不支持启动时的检查，后续支持!
+
+注意：当前不支持请求里面的版本号携带前缀,如有需要可以自己按照下面的方式实现
+
+如何自定义一个版本匹配策略：
+继承`com.hczq.verctrl.AbstractApiVerPredicate`抽象类
+
+重写`boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request,VerComparator verComparator);`方法，使用Competent注解并给定一个自定义BeanName，在VerCtrl注解中指定type和自定义的实现类BeanName一致即可；
+
+也可以重写版本比较器，实现`com.hczq.verctrl.VerComparator`接口，并且在VerCtrl注解中指定比较器类型`verComparator`即可
+
+下面模拟了请求头中版本号带v前缀的情况，使用自定义的方法解决。
+
+![img.png](assets/customer.png)
+
+![img.png](assets/customerApi.png)
+
+注意：同一个接口不要使用多个匹配策略！！！

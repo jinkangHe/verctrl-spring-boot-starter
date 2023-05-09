@@ -15,7 +15,7 @@ public @interface VerCtrl {
     /**
      * 版本控制的参数存放在哪
      */
-    VerCtrlType type() default VerCtrlType.HEADER;
+    String type() default VerCtrlType.HEADER;
 
     /**
      * 决定被注解的接口处理哪个版本的请求

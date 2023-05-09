@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component("HEADER")
 public class HeaderApiVerPredicate extends AbstractApiVerPredicate {
     @Override
-    public boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request,VerComparator verComparator) {
+    public boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request, VerComparator verComparator) {
         String verKey = apiVerDefinition.getVerKey();
         String header = request.getHeader(verKey);
         return doPredicate(apiVerDefinition, verComparator, header);

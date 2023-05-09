@@ -1,7 +1,6 @@
 package com.hczq.verctrl;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.web.servlet.mvc.condition.RequestCondition;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +29,7 @@ public class ApiVersionCondition implements RequestCondition<ApiVersionCondition
     @Override
     public ApiVersionCondition getMatchingCondition(HttpServletRequest request) {
 
-        VerCtrlType verCtrlType = apiVerDefinition.getVerCtrlType();
+        String verCtrlType = apiVerDefinition.getVerCtrlType();
         ApiVerPredicate predicate = ApiVerPredicateFactory.getPredicate(verCtrlType);
         if (predicate.predicate(apiVerDefinition,request,apiVerDefinition.getVerComparator())) {
             return this;

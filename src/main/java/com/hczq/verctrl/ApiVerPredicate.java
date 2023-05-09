@@ -15,7 +15,7 @@ public interface ApiVerPredicate {
      * @param request 请求信息
      * @return 是否成功匹配
      */
-    boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request,VerComparator verComparator);
+    boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request, VerComparator verComparator);
 
 
 }

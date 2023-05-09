@@ -7,7 +7,7 @@ package com.hczq.verctrl;
  * @Date 2023/5/8 9:23
  * @Version 1.0
  */
-public abstract class AbstractApiVerPredicate implements ApiVerPredicate{
+public abstract class AbstractApiVerPredicate implements ApiVerPredicate {
     protected boolean doPredicate(ApiVerDefinition apiVerDefinition, VerComparator verComparator, String value) {
         if (value == null || value.equals("")) {
             return false;

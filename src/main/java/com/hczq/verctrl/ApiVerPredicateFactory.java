@@ -15,10 +15,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class ApiVerPredicateFactory {
 
-    private static Map<String,ApiVerPredicate> apiVerPredicateMap = new ConcurrentHashMap<>();
+    private static Map<String, ApiVerPredicate> apiVerPredicateMap = new ConcurrentHashMap<>();
 
-    public static  ApiVerPredicate getPredicate(VerCtrlType type) {
-        return apiVerPredicateMap.get(type.name());
+    public static  ApiVerPredicate getPredicate(String type) {
+        return apiVerPredicateMap.get(type);
     }
 
     @Autowired

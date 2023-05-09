@@ -3,7 +3,6 @@ package com.hczq.verctrl;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 
 /**
@@ -13,9 +12,9 @@ import java.util.Map;
  * @Version 1.0
  */
 @Component("PARAM")
-public class ParamApiVerPredicate extends AbstractApiVerPredicate{
+public class ParamApiVerPredicate extends AbstractApiVerPredicate {
     @Override
-    public boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request,VerComparator verComparator) {
+    public boolean predicate(ApiVerDefinition apiVerDefinition, HttpServletRequest request, VerComparator verComparator) {
         String parameter = request.getParameter(apiVerDefinition.getVerKey());
         return doPredicate(apiVerDefinition, verComparator, parameter);
     }

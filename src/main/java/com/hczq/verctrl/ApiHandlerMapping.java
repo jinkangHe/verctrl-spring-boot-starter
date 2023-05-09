@@ -3,6 +3,7 @@ package com.hczq.verctrl;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.servlet.mvc.condition.RequestCondition;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+
 import java.lang.reflect.Method;
 
 /**
@@ -12,12 +13,12 @@ public class ApiHandlerMapping extends RequestMappingHandlerMapping {
 
     @Override
     protected RequestCondition<?> getCustomTypeCondition(Class<?> handlerType) {
-        VerCtrl verCtrl = AnnotationUtils.findAnnotation(handlerType, VerCtrl.class);
+        com.hczq.verctrl.VerCtrl verCtrl = AnnotationUtils.findAnnotation(handlerType, com.hczq.verctrl.VerCtrl.class);
         return createCondition(verCtrl);
     }
     @Override
     protected RequestCondition<?> getCustomMethodCondition(Method method) {
-        VerCtrl verCtrl = AnnotationUtils.findAnnotation(method, VerCtrl.class);
+        com.hczq.verctrl.VerCtrl verCtrl = AnnotationUtils.findAnnotation(method, com.hczq.verctrl.VerCtrl.class);
         return createCondition(verCtrl);
     }
     private RequestCondition<ApiVersionCondition> createCondition(VerCtrl verCtrl) {

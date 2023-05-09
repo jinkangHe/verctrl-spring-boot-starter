@@ -17,9 +17,9 @@ public class ApiVerDefinition {
 
     private String suffix;
 
-    private VerCtrlType verCtrlType;
+    private String verCtrlType;
 
-    private VerComparator verComparator;
+    private com.hczq.verctrl.VerComparator verComparator;
 
     private String comparableVerVal;
 
